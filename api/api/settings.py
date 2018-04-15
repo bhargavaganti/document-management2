@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'user',
+    'document',
     
     'rest_framework',
     'coreapi',
@@ -129,6 +130,12 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'user.User'
 
 # Constants:
+TITLE = (
+    (1, 'Title1'),
+    (2, 'Title2'),
+    (3, 'Title3')
+    )
+
 ORG_USER_TYPES = (
     (1, 'OrgAdmin'),
     (2, 'OrgLead'),
@@ -140,6 +147,12 @@ PACKAGE_TYPES = (
     (2, 'Type2'),
     (3, 'Type3')
     )
+    
+PACKAGE_STATUS = (
+    (1, 'Status1'),
+    (2, 'Status2'),
+    (3, 'Status3')
+    )
 
 DOC_TYPES = (
     (1, 'Type1'),
@@ -147,7 +160,7 @@ DOC_TYPES = (
     (3, 'Type3')
     )
 
-DOC_STATUSES = (
+DOC_STATUS = (
         (1, 'Primit'),
         (2, 'Acceptat'),
         (3, 'Respins'),

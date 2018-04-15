@@ -21,7 +21,7 @@ schema_view = get_schema_view(title = 'WHATEVER')
 
 urlpatterns = [
     path('api/schema/', schema_view, name = 'schema'),
-    # path('api/', include('document.urls')),
+    path('api/', include('document.urls')),
     path('api/', include('user.urls')),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),

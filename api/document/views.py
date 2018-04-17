@@ -16,7 +16,15 @@ class CustomerViewset(viewsets.ModelViewSet):
 class DocumentViewset(viewsets.ModelViewSet):
     serializer_class = DocumentSerializer
     queryset = Document.objects.all()
+    
+    def perform_create(self, serializer):
+        return serializer.save(created_by=self.request.user,
+                                modified_by = self.request.user)
 
 class PackageViewset(viewsets.ModelViewSet):
     serializer_class = PackageSerializer
     queryset = Package.objects.all()
+    
+    def perform_create(self, serializer):
+        return serializer.save(created_by=self.request.user,
+                                modified_by = self.request.user)

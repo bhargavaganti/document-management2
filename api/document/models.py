@@ -38,6 +38,9 @@ class Package(models.Model):
     pack_status = models.CharField(max_length = 2, choices = PACKAGE_STATUS, default = PACKAGE_STATUS[0])
     owner = models.ForeignKey(Customer, on_delete = models.CASCADE, related_name = 'customer_packages')
     comments = models.TextField()
+    
+    def __str__(self):
+        return self.pack_id
 
 # Document model
 class Document(models.Model):
@@ -49,4 +52,8 @@ class Document(models.Model):
     # modified_at =
     doc_status = models.CharField(max_length = 2, choices = DOC_STATUS, default = DOC_STATUS[0])
     owner = models.ForeignKey(Customer, on_delete = models.CASCADE, related_name = 'customer_documents')
+    package = models.ForeignKey(Package, on_delete = models.CASCADE, related_name = 'package_documents')
     comments = models.TextField()
+    
+    def __str__(self):
+        return self.doc_id

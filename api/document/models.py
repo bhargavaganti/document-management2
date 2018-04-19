@@ -25,9 +25,9 @@ class Customer(models.Model):
     # modified_at = 
     
     def __str__(self):
-        return self.email
+        return '%s %s' % (self.first_name, self.last_name)
 
-# Document package model to have a 1-to-1 relationship with customer and 1-to-1 relationship with document
+# Document package model to have a 1-to-1 relationship with customer and 1-to-many relationship with document
 class Package(models.Model):
     pack_id = models.UUIDField(primary_key = True, default = uuid.uuid4, editable = False)
     pack_type = models.CharField(max_length = 2, choices = PACKAGE_TYPES)
@@ -40,7 +40,7 @@ class Package(models.Model):
     comments = models.TextField()
     
     def __str__(self):
-        return self.pack_id
+        return '%s %s' % (self.owner, self.owner)
 
 # Document model
 class Document(models.Model):
@@ -56,4 +56,4 @@ class Document(models.Model):
     comments = models.TextField()
     
     def __str__(self):
-        return self.doc_id
+        return '%s %s' % (self.owner, self.doc_type)
